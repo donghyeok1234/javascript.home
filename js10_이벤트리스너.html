@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와함수</title>
+    <style>
+        .box-class{
+            background: yellowgreen;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-class" id="box-id">
+        <p id="box-test">버튼을 누르면 창이 열립니다</p>
+        <button onclick="상자닫기()">닫기</button>
+    </div>
+    <div>
+        <button onclick="상자열기('아이디를 입력하세요')">열기</button>
+        <button onclick="상자열기('비밀번호를 입력하세요')">열기2</button>
+        <!-- 열기: 아이디를 입력하세요 -->
+        <!-- 열기2: 비밀번호를 입력하세요 -->
+    </div>
+
+    <script>
+        function 상자열기(매개변수){
+            document.getElementById('box-id').style.display = 'block';
+            document.getElementById('box-test').innerHTML = 매개변수;
+        }
+
+        function 상자닫기(){
+            document.getElementById('box-id').style.display = 'none'
+        }
+
+        // box-id를 클릭하면 글자색을 붉은색으로 변경
+        document.getElementById('box-id').addEventListener('click', function(){
+            document.getElementById('box-test').style.color = 'white';
+            document.getElementById('box-test').style.fontSize = '30px';
+        })
+
+        // 박스에다가 마우스를 올리면 배경을 좀 더 찐하게
+        document.getElementById('box-id').addEventListener('mouseover', function(){
+            document.getElementById('box-id').style.background = 'green'
+        })
+        // 클릭하면 더 찐하게 
+        document.getElementById('box-id').addEventListener('mousedown', function(){
+            document.getElementById('box-id').style.background = 'darkgreen'
+        })
+
+        document.getElementById('box-id').addEventListener('mouseup', function(){
+            document.getElementById('box-id').style.background = 'green'
+        })
+
+    </script>
+</body>
+</html>

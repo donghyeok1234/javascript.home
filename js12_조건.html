@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        .top-nav{
+            background: lightgray;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            height: 55px;
+        }
+
+        .top-nav li{
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            padding-right: 40px;
+        }
+
+        #top-logo{
+            margin: 0;
+            background: red;
+            padding: 15px;
+        }
+
+        .down-nav{
+            background: black;
+            width: 100%;
+            z-index: 5;
+            visibility: visible;
+            height: 0;
+            transition: 1s;
+        }
+
+        .down-nav ul{
+            display: flex;
+            margin: 0;
+            width: 100%;
+            padding-left: 22px;
+        }
+
+        .down-nav li{
+            display: inline-block;
+            margin:0;
+            font-size: 20px;
+            font-weight: 900;
+            color: white;
+        }
+        /* 커피 시작 */
+        .down-nav-inner1{
+            width: 15%;
+            height: 0;
+            float: left;
+            transition: 1s;
+            position: relative;
+        }
+
+        .down-nav-inner1 ul{
+            padding: 0;
+        }
+
+        .down-nav-inner1 li{
+            font-size: 14px;
+            margin: 0;    
+        }
+        /* 커피 끝 */
+
+        /* 라떼 시작 */
+        .down-nav-inner2{
+            width: 15%;
+            height: 0;
+            float: left;
+            transition: 1s;
+            position: relative;
+        }
+
+        .down-nav-inner2 ul{
+            padding: 0;
+        }
+
+        .down-nav-inner2 li{
+            font-size: 14px;
+            margin: 0;    
+        }
+        /*라떼 끝*/
+
+        /* 주스 시작 */
+        .down-nav-inner3{
+            width: 15%;
+            height: 0;
+            float: left;
+            transition: 1s;
+            position: relative;
+        }
+
+        .down-nav-inner3 ul{
+            padding: 0;
+        }
+
+        .down-nav-inner3 li{
+            font-size: 14px;
+            margin: 0;    
+        }
+        /*주스 끝*/
+
+        /*티 시작*/
+        .down-nav-inner4{
+            width: 15%;
+            height: 0;
+            float: left;
+            transition: 1s;
+            position: relative;
+        }
+
+        .down-nav-inner4 ul{
+            padding: 0;
+        }
+
+        .down-nav-inner4 li{
+            font-size: 14px;
+            margin: 0;    
+        }
+        /*티 끝*/
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 : 로고 -->
+    <div class="top-nav">
+        <h2 id="top-logo">로고</h2>
+        <ul>
+            <li>커피</li>
+            <li>라떼</li>
+            <li>주스</li>
+            <li>티</li>
+        </ul>
+    </div>
+
+    <div class="down-nav" id="down-nav">
+        <ul>
+            <li style="width: 15%;">커피</li>
+            <li style="width: 15%;">라떼</li>
+            <li style="width: 15%;">주스</li>
+            <li style="width: 15%;">티</li>
+        </ul>
+        <div class="down-nav-inner1" id="down-nav-inner1">
+            <ul>
+                <li style="position: absolute; left:20px; top:0%">아메리카노</li>
+                <li style="position: absolute; left:20px; top:25%;">에스프레소</li>
+                <li style="position: absolute; left:20px; top:50%;">콜드브루</li>
+            </ul>
+        </div>
+        <div class="down-nav-inner2" id="down-nav-inner2">
+            <ul>
+                <li style="position: absolute; left:20px; top:0%">카페라떼</li>
+                <li style="position: absolute; left:20px; top:25%;">바닐라라떼</li>
+                <li style="position: absolute; left:20px; top:50%;">돌체라떼</li>
+            </ul>
+        </div>
+        <div class="down-nav-inner3" id="down-nav-inner3">
+                <ul>
+                    <li style="position: absolute; left:20px; top:0%">딸기 주스</li>
+                    <li style="position: absolute; left:20px; top:25%;">바나나 주스</li>
+                </ul>
+        </div>
+        <div class="down-nav-inner4" id="down-nav-inner4">
+            <ul>
+                <li style="position: absolute; left:20px; top:0%">얼그레이</li>
+                <li style="position: absolute; left:20px; top:25%;">레몬티</li>
+                <li style="position: absolute; left:20px; top:50%;">자몽티</li>
+                <li style="position: absolute; left:20px; top:75%;">유자차</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var down_nav_flag = 0
+        document.getElementById('top-logo').addEventListener('click',function(){
+            if(down_nav_flag === 0){
+                down_nav_flag = 1
+                document.getElementById('down-nav').style.height = '150px';
+                document.getElementById('down-nav-inner1').style.height = '123px';
+                document.getElementById('down-nav-inner2').style.height = '123px';
+                document.getElementById('down-nav-inner3').style.height = '123px';
+                document.getElementById('down-nav-inner4').style.height = '123px';
+            }else if(down_nav_flag === 1){
+                down_nav_flag = 0
+                document.getElementById('down-nav').style.height = '0';
+                document.getElementById('down-nav').style.height = '0';
+                document.getElementById('down-nav-inner1').style.height = '0';
+                document.getElementById('down-nav-inner2').style.height = '0';
+                document.getElementById('down-nav-inner3').style.height = '0';
+                document.getElementById('down-nav-inner4').style.height = '0';
+            }
+        })
+    </script>
+</body>
+</html>
